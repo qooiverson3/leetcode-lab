@@ -60,7 +60,7 @@ func search(nums []int, target int) int {
 
 	if len(nums) == 1 {
 		if nums[0] == target {
-			return nums[0]
+			return 0
 		}
 		if nums[0] != target {
 			return -1
@@ -74,10 +74,9 @@ func search(nums []int, target int) int {
 		}
 		if nums[mid] < target {
 			left = mid + 1
+			continue
 		}
-		if nums[mid] > target {
-			right = mid - 1
-		}
+		right = mid - 1
 	}
 	return -1
 }
