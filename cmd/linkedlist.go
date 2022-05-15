@@ -21,9 +21,9 @@ import (
 	"github.com/spf13/cobra"
 )
 
-// BSCmd represents the BS command
-var BSCmd = &cobra.Command{
-	Use:   "BS",
+// linkedlistCmd represents the linkedlist command
+var linkedlistCmd = &cobra.Command{
+	Use:   "linkedlist",
 	Short: "A brief description of your command",
 	Long: `A longer description that spans multiple lines and likely contains examples
 and usage of using your command. For example:
@@ -32,51 +32,20 @@ Cobra is a CLI library for Go that empowers applications.
 This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("BS called")
+		fmt.Println("linkedlist called")
 	},
 }
 
 func init() {
-	rootCmd.AddCommand(BSCmd)
+	rootCmd.AddCommand(linkedlistCmd)
 
 	// Here you will define your flags and configuration settings.
 
 	// Cobra supports Persistent Flags which will work for this command
 	// and all subcommands, e.g.:
-	// BSCmd.PersistentFlags().String("foo", "", "A help for foo")
+	// linkedlistCmd.PersistentFlags().String("foo", "", "A help for foo")
 
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
-	// BSCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
-}
-
-func search(nums []int, target int) int {
-	left := 0
-	right := len(nums) - 1
-
-	if len(nums) == 0 {
-		return -1
-	}
-
-	if len(nums) == 1 {
-		if nums[0] == target {
-			return 0
-		}
-		if nums[0] != target {
-			return -1
-		}
-	}
-	for left <= right {
-		mid := (left + right) / 2
-
-		if nums[mid] == target {
-			return mid
-		}
-		if nums[mid] < target {
-			left = mid + 1
-			continue
-		}
-		right = mid - 1
-	}
-	return -1
+	// linkedlistCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }
